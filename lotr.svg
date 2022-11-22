@@ -1,11 +1,7 @@
 @startuml
 
-lotr *-- match
-lotr *-- player
-player --> army
-army *-- character
-match <-- rounds
-player --> rounds
+object lotr{
+}
 
 class hero{
 int health
@@ -16,6 +12,7 @@ attack()
 defence()
 specialmove()
 }
+
 class beast{
 int health
 String Orco
@@ -24,6 +21,7 @@ attack()
 defence()
 specialmove()
 }
+
 class match{
 player[]: Player
 round[]: Round
@@ -32,21 +30,48 @@ round[]: Round
 +setRounds (Round[] round): void
 +getRounds(): Round[]
 }
-class rounds{
-attack()
-defence()
-specialmove()
-}
+
 
 class army{
-character()
+character[]:Character
++setCharacter(Character[] character):void
++getCharacter():Character[]
+}
+
+class rounds{
+attack[]: Attack
+defence[]: Defence
+specialMove[]: SpecialMove
++getAttack(Attack[] Attack):void
++setAttack(): Attack
++getDefence(Defence[] Defence):void
++setDefence(): Defence
++getSpecialMove(SpecialMove[] SpecialMove):void
++setSpecialMove(): SpecialMove
 }
 class character{
-hero()
-beast()
+charecterHero: Hero
+characterBeast: Beast
++getCharacterHero(Hero characterHero):void
++setCharacterHero(): Hero
 }
 
+class player{
+int playerNumber
+String playerName
+playerDice[]: Dice
++setPlayerNumber(int playerNumber): void
++getPlayerNumber() : int
++setDice (Dice[] playerDice): void
++getDice(): Dice[]
+}
 
+lotr *-- match
+lotr *-- player
+player --> army
+army *-- character
+match <-- rounds
+player --> rounds
 character <|-- hero 
 character <|-- beast
 
