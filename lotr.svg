@@ -1,0 +1,53 @@
+@startuml
+
+lotr *-- match
+lotr *-- player
+player --> army
+army *-- character
+match <-- rounds
+player --> rounds
+
+class hero{
+int health
+String Elf
+String Hobbit
+String Human
+attack()
+defence()
+specialmove()
+}
+class beast{
+int health
+String Orco
+String Trasgos
+attack()
+defence()
+specialmove()
+}
+class match{
+player[]: Player
+round[]: Round
++setPlayers(Player [] players):void
++getPlayers(): Player[]
++setRounds (Round[] round): void
++getRounds(): Round[]
+}
+class rounds{
+attack()
+defence()
+specialmove()
+}
+
+class army{
+character()
+}
+class character{
+hero()
+beast()
+}
+
+
+character <|-- hero 
+character <|-- beast
+
+@enduml
