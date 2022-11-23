@@ -1,0 +1,72 @@
+@startuml
+
+class LOTR{
+LOTR()
+initGame()
+play()
+}
+class Player{
+String armysName
+Soldier[] soldier
+int Role
+int diceRounds
+Player()
+attack()
+getArmysName()
+throwDice()
+}
+class Round{
+execute()
+}
+class Soldier{
+}
+class Human{
+int heal
+int armor
+human()
+}
+class Elf{
+int heal
+int armor
+elf()
+}
+class Hobbits{
+int heal
+int armor
+hobbit()
+}
+class Orcs{
+int heal
+int armor
+orc()
+}
+class Trasgos{
+int heal
+int armor
+Trasgos()
+}
+class Battle{
+battle ( Soldier hero, Soldier beast)
+getExtra()
+}
+class Board{
+PLayer player1
+Player player2
+makeArmy()
+getRole()
+printBoard()
+noWinner()
+}
+
+LOTR *-- Round
+Round o-- Battle
+Round *-- Player
+Round o-- Board
+Player o-- Soldier
+Soldier <|-- Elf
+Soldier <|-- Hobbits
+Soldier <|-- Orcs
+Soldier <|-- Trasgos
+Soldier <|-- Human
+
+@enduml
