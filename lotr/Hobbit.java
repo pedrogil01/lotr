@@ -1,7 +1,9 @@
 public class Hobbit implements ISoldier{
     private int heal;
     private int armor;
-    public Hobbit(int heal, int armor) {
+    private String name;
+    public Hobbit(String name, int heal, int armor) {
+        this.name = name;
         this.heal = heal;
         this.armor = armor;
     }
