@@ -14,8 +14,8 @@ public class Army {
         heroes.add( new Elf(250,100));
         heroes.add( new Hobbit(200, 100));
         heroes.add( new Human(180, 100));
-        heroes.add( new Orc(300, 100));
-        heroes.add( new Trasgos(325, 100));
+        beasts.add( new Orc(300, 100));
+        beasts.add( new Trasgos(325, 100));
 
 
 
