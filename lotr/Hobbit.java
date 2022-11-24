@@ -2,6 +2,9 @@ public class Hobbit implements ISoldier{
     private int heal;
     private int armor;
     private String name;
+    public String getName() {
+        return name;
+    }
     public Hobbit(String name, int heal, int armor) {
         this.name = name;
         this.heal = heal;

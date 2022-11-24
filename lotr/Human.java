@@ -2,6 +2,9 @@ public class Human implements ISoldier {
     private int heal = 180;
     private int armor;
     private String name;
+    public String getName() {
+        return name;
+    }
     public Human(String name,int heal, int armor) {
         this.heal = heal;
         this.armor = armor;
