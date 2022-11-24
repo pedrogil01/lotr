@@ -3,14 +3,19 @@ public class Orc implements ISoldier {
     private int heal = 300;
     private int armor ;
     private String name;
-    public String getName() {
-        return name;
-    }
+
     public Orc(String name,int heal, int armor) {
         this.heal = heal;
         this.armor = armor;
         this.name = name;
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+    
+    @Override
     public int getHeal() {
         return heal;
     }

@@ -2,10 +2,8 @@ import java.util.ArrayList;
 
 public class Army {
 
-    
-    
-    ArrayList <ISoldier> heroes = new ArrayList<ISoldier>();
-    ArrayList <ISoldier> beasts = new ArrayList<ISoldier>();
+    private ArrayList <ISoldier> heroes = new ArrayList<ISoldier>();
+    private ArrayList <ISoldier> beasts = new ArrayList<ISoldier>();
 
 
 
@@ -17,8 +15,22 @@ public class Army {
         beasts.add( new Orc("Orc",300, 100));
         beasts.add( new Trasgos("Trasgos",325, 100));
     }
+
+
+
     public void attack(){
+
         
+    }
+
+
+    //new method to get acces to both armys
+    public ArrayList<ISoldier> getHeroesArmy() {
+        return heroes;
+    }
+
+    public ArrayList<ISoldier> getBeastsArmy() {
+        return beasts;
     }
 
     
