@@ -16,12 +16,15 @@ public class Human implements ISoldier {
     public int getHeal() {
         return heal;
     }
+    @Override
     public void setHeal(int heal) {
         this.heal = heal;
     }
+    @Override
     public int getArmor() {
         return armor;
     }
+    @Override
     public void setArmor(int armor) {
         this.armor = armor;
     }

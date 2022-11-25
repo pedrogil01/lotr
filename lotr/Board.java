@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 public class Board {
     private Army army;
-    ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
-    ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
+    private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
+    private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
 
     public Board(Army army) {
 
@@ -25,7 +25,7 @@ public class Board {
                 isAnyWinner=false;
             }
         }
-        
+
         return isAnyWinner;
 	}
 
