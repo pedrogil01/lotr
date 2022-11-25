@@ -9,18 +9,21 @@ public class Army {
 
     public void makeArmys() {
 
-        heroes.add( new Elf("Elf", 250,100 ));
-        heroes.add( new Hobbit("Hobbit",200, 100));
-        heroes.add( new Human("Human" , 180, 100));
-        beasts.add( new Orc("Orc",300, 100));
-        beasts.add( new Trasgos("Trasgos",325, 100));
-    }
+        heroes.add( new Elf());
+        heroes.add( new Hobbit());
+        heroes.add( new Human());
+        heroes.add( new Elf());
+        heroes.add( new Hobbit());
 
+        //Here we create both armys.
 
+        beasts.add( new Orc());
+        beasts.add( new Orc());
+        beasts.add( new Trasgos());
+        beasts.add( new Orc());
+        beasts.add( new Orc());
 
-    public void attack(){
-
-        
+    
     }
 
 

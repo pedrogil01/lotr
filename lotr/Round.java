@@ -1,6 +1,4 @@
 public class Round {
-    private Player player1;
-    private Player player2;
     private Board board;
     private Army army;
     private Battle battle;

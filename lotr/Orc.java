@@ -1,8 +1,13 @@
 public class Orc implements ISoldier {
 
     private int heal = 300;
-    private int armor ;
-    private String name;
+    private int armor = 100;
+    private String name = "Orc";
+
+
+    
+    public Orc() {
+    }
 
     public Orc(String name,int heal, int armor) {
         this.heal = heal;

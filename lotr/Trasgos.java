@@ -1,8 +1,13 @@
 public class Trasgos implements ISoldier {
 
     private int heal = 325;
-    private int armor;
-    private String name;
+    private int armor = 100;
+    private String name = "Trasgos";
+
+
+    
+    public Trasgos() {
+    }
 
     public Trasgos(String name, int heal, int armor) {
         this.heal = heal;

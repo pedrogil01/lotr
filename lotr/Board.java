@@ -4,10 +4,9 @@ public class Board {
     private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
     private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
 
+    
     public Board(Army army) {
-
     this.army =army;
-
     }
 
    

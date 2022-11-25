@@ -2,8 +2,12 @@ public class Elf implements ISoldier{
     
     private int heal = 250;
     private int armor = 100;
-    private String name;
+    private String name = "Elf";
     
+
+    public Elf() {
+    }
+
     public Elf(String name, int heal, int armor) {
         this.name = name;
         this.heal = heal;

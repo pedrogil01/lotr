@@ -1,8 +1,12 @@
 public class Human implements ISoldier {
     private int heal = 180;
-    private int armor;
-    private String name;
+    private int armor = 100;
+    private String name = "Human";
 
+
+    
+    public Human() {
+    }
     public Human(String name,int heal, int armor) {
         this.heal = heal;
         this.armor = armor;
