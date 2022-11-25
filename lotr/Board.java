@@ -18,7 +18,15 @@ public class Board {
 
 	public boolean isAnyWinner() {
 
-        return true;
+        boolean isAnyWinner = true;
+
+        for (int i =0 ; i<heroes.size(); i++){
+            if(heroes.get(i).getHeal()<=0){
+                isAnyWinner=false;
+            }
+        }
+        
+        return isAnyWinner;
 	}
 
 
@@ -46,15 +54,8 @@ public class Board {
                 System.out.print(" ");
             System.out.println("|");
 
+
         }
-
-
-        
-
-
-
-
-
 
     }
     
