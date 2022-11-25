@@ -12,6 +12,11 @@ public class Terminal {
         return scanner.nextInt();
     }
 
+    public static void pressAKey( String msg){
+        System.out.println(msg);
+        scanner.next();
+    }
+
 
 
 }

@@ -19,6 +19,8 @@ public class Lotr {
     }
 
     private void initGame() {
+        player1 = new Player(1);
+        player2 = new Player(2);
         battle = new Battle(army,player1,player2);
         board = new Board(army);
         round = new Round(board, army);
