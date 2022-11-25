@@ -1,7 +1,7 @@
 public class Trasgos implements ISoldier {
 
     private int heal = 325;
-    private int armor = 100;
+    private int armor = 40;
     private String name = "Trasgos";
 
 

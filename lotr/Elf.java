@@ -1,7 +1,7 @@
 public class Elf implements ISoldier{
     
     private int heal = 250;
-    private int armor = 100;
+    private int armor = 40;
     private String name = "Elf";
     
 

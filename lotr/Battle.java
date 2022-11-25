@@ -15,8 +15,10 @@ public class Battle {
 
     public void makeBattle(int countRound) {
         hero = army.getHeroesArmy().get(countRound);
-        beast = army.getBeastsArmy().get(countRound);                      
+        beast = army.getBeastsArmy().get(countRound);   
+        System.out.println("||||||||||||\nIs Heroes turn!!!");                   
         attack(hero, beast, player1);
+        System.out.println("||||||||||||\nIs Beasts turn!!!");
         attack(beast, hero, player2);   
     
     }
@@ -52,9 +54,9 @@ public class Battle {
         int power =  player.throwDice();     
         int newHeal = 0;
         if( power > deffender.getArmor()){
-            newHeal = (int) (deffender.getHeal() - (attack + getExtraAttack(attacker, deffender) - (deffender.getArmor()-deffender.getArmor()*getExtraArmor(attacker))));
+            newHeal = (int) (deffender.getHeal() - (power + getExtraAttack(attacker, deffender) - (deffender.getArmor()-deffender.getArmor()*getExtraArmor(attacker))));
             deffender.setHeal(newHeal);
-            System.out.println("New heal of " + deffender.getName() + " .");
+            System.out.println("New heal of " + deffender.getName() + " = " +deffender.getHeal() + " ");
         } else {
             System.out.println("Not enough power, good luck on the next one");
         }

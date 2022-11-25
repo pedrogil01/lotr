@@ -1,6 +1,6 @@
 public class Human implements ISoldier {
     private int heal = 180;
-    private int armor = 100;
+    private int armor = 40;
     private String name = "Human";
 
 

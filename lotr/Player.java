@@ -5,7 +5,7 @@ public class Player {
     private int numberOfHerosThrows = 1;
     private int numberOfBeastsThrows = 2;
     private int maxHeroesAttack = 100;
-    private int maxBeastsAttack = 100;
+    private int maxBeastsAttack = 90;
     private ArrayList<Integer> hereosDices = new ArrayList<>();
     private ArrayList<Integer> beastDices = new ArrayList<>();
     
@@ -21,19 +21,19 @@ public class Player {
     public int throwDice() {
         
         if (option == 1){
-            System.out.print("To throw your dice ");
+            System.out.print("|||||||||||||||||| \nTo throw your dice ");
             for (int i =0; i<numberOfHerosThrows; i++){
                 Terminal.pressAKey("press any key:");
-                hereosDices.add((int) Math.floor(Math.random()*(maxHeroesAttack)));
-                System.out.println("Your throw =" + hereosDices.get(i));   
+                hereosDices.set(i,(int) Math.floor(Math.random()*(maxHeroesAttack)));
+                System.out.println("|||||||||\nYour throw "+ (i+1) + " is: " +hereosDices.get(i));   
             }
             return getMax(hereosDices);
         } else {
-            System.out.print("To throw your dice ");
+            System.out.print("|||||||||||||||||| \nTo throw your dice ");
             for (int i =0; i<numberOfBeastsThrows; i++){
                 Terminal.pressAKey("press any key:");
-                beastDices.add((int) Math.floor(Math.random()*(maxBeastsAttack)));
-                System.out.println("Your throw =" + beastDices.get(i));   
+                beastDices.set(i,(int) Math.floor(Math.random()*(maxBeastsAttack)));
+                System.out.println("|||||||||\nYour throw "+ (i+1) + " is: " +beastDices.get(i));   
             }
             return getMax(beastDices);
         }
@@ -46,11 +46,12 @@ public class Player {
 
         int max = 0;
 
-        for (int i = 1; i < numbers.size(); i++) {
+        for (int i = 0; i < numbers.size(); i++) {
             if (numbers.get(i) > max) {
                 max = numbers.get(i);
             }
-        }    
+        }  
+
         return max;
     }
 

@@ -32,7 +32,7 @@ public class Board {
 
     //this is the print method, Reads all the heroes's or beast's estadistics and shows it in console
 
-    public void printBoard() {
+    public void printBoard(int countRound) {
 
         heroes = army.getHeroesArmy();
         beasts = army.getBeastsArmy();
@@ -51,7 +51,13 @@ public class Board {
             System.out.print(" |" + beasts.get(i).getName() + " vida = " + beasts.get(i).getHeal() );
             for (int j =0; j<12 - beasts.get(i).getName().length(); j++)
                 System.out.print(" ");
-            System.out.println("|");
+            
+            if(countRound ==i){
+                System.out.println("| <---------");
+            }
+            else{
+                System.out.println("|");
+            }
 
 
         }

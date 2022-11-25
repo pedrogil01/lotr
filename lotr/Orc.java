@@ -1,7 +1,7 @@
 public class Orc implements ISoldier {
 
     private int heal = 300;
-    private int armor = 100;
+    private int armor = 40;
     private String name = "Orc";
 
 

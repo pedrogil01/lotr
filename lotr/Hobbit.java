@@ -1,6 +1,6 @@
 public class Hobbit implements ISoldier{
     private int heal = 200;
-    private int armor = 100;
+    private int armor = 40;
     private String name = "Hobbit";
 
 

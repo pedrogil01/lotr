@@ -7,6 +7,10 @@ public class Army {
 
 
 
+    public Army() {
+    }
+
+
     public void makeArmys() {
 
         heroes.add( new Elf());
