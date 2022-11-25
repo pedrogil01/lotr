@@ -6,9 +6,8 @@ public class Battle {
     private Player player2;
     private int numberOfDice;
     private Army army;
-    private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
-    private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
-
+    private ISoldier hero;
+    private ISoldier beast;
     private int attack;
 
 
@@ -16,28 +15,32 @@ public class Battle {
         this.army = army;
         this.player1 = player1;
         this.player2 = player2;
-        this.heroes = army.getHeroesArmy();
-        this.heroes = army.getBeastsArmy();
     }
 
     public void makeBattle(int countRound) {
-        ISoldier hero = heroes.get(countRound);
-        ISoldier beast = beasts.get(countRound);
-        numberOfDice = 1 ;                          //number of dices
-        attack =  player1.throwDice(numberOfDice);
-
-        if( attack > beast.getArmor()){
-            int newHeal = hero.getHeal() - (attack + getExtra());
-            hero.setHeal(newHeal);
-        }
-
-        
-
+        hero = army.getHeroesArmy().get(countRound);
+        beast = army.getBeastsArmy().get(countRound);                      
+        attack(hero, beast, player1);
+        attack(beast, hero, player2);   
+    
     }
 
-    private int getExtra() {
-            
+    private int getExtra(ISoldier attacker, ISoldier deffender) {
+
         return 0;
+    }
+
+    private void attack(ISoldier attacker, ISoldier deffender, Player player){
+        int power =  player.throwDice();     
+        int newHeal = 0;
+        if( power > deffender.getArmor()){
+            newHeal = deffender.getHeal() - (attack + getExtra(attacker, deffender));
+            deffender.setHeal(newHeal);
+            System.out.println("New heal of " + deffender.getName() + " .");
+        } else {
+            System.out.println("Not enough power, good luck on the next one");
+        }
+
     }
     
 }
