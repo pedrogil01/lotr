@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 public class Board {
+    
     private Army army;
     private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
     private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
