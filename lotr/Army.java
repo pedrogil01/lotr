@@ -4,6 +4,7 @@ public class Army {
 
     private ArrayList <ISoldier> heroes = new ArrayList<ISoldier>();
     private ArrayList <ISoldier> beasts = new ArrayList<ISoldier>();
+    private int sizeOfArmy;
 
 
 
@@ -14,6 +15,8 @@ public class Army {
 
 
     public void makeArmys() {
+
+
 
         heroes.add( new Elf());
         heroes.add( new Hobbit());
@@ -29,6 +32,8 @@ public class Army {
         beasts.add( new Orc());
         beasts.add( new Orc());
 
+
+        sizeOfArmy = heroes.size();
     
     }
 
@@ -41,6 +46,20 @@ public class Army {
     public ArrayList<ISoldier> getBeastsArmy() {
         return beasts;
     }
+
+
+
+    public int getSizeOfArmy() {
+        return sizeOfArmy;
+    }
+
+
+    public void setSizeOfArmy(int sizeOfArmy) {
+        this.sizeOfArmy = sizeOfArmy;
+    }
+
+
+
 
     
 }

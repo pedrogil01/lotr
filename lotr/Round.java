@@ -25,7 +25,7 @@ public class Round {
             System.out.println("\n\n\n||||||||NEW TURN||||||||||");
             noWinner = board.isAnyWinner();
             countRound ++;
-            if(countRound >4)
+            if(countRound > army.getSizeOfArmy() - 1)
                 countRound = 0;
         }
     
