@@ -55,7 +55,9 @@ public class Battle {
         int newHeal = 0;
         if( power > deffender.getArmor()){
             newHeal = (int) (deffender.getHeal() - (power + getExtraAttack(attacker, deffender) - (deffender.getArmor()-deffender.getArmor()*getExtraArmor(attacker))));
+            
             deffender.setHeal(newHeal);
+
             System.out.println("New heal of " + deffender.getName() + " = " +deffender.getHeal() + " ");
         } else {
             System.out.println("Not enough power, good luck on the next one");

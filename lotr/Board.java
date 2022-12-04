@@ -18,17 +18,26 @@ public class Board {
 
 	public boolean isAnyWinner() {
 
-        boolean isAnyWinner = true;
+        boolean isAnyWinner = false;
 
         for (int i =0 ; i<heroes.size(); i++){
-            if(heroes.get(i).getHeal()<=0){
-                isAnyWinner=false;
-            }
+            if(heroes.get(i).getHeal()>0){
+                isAnyWinner=true;
+        
         }
+        
+    }
 
-        return isAnyWinner;
+    for (int i =0 ; i<beasts.size(); i++){
+        if(beasts.get(i).getHeal()>0){
+            isAnyWinner=true;
+    
+        }
+    
+    }
+    return isAnyWinner;
 	}
-
+    
 
 
     //this is the print method, Reads all the heroes's or beast's estadistics and shows it in console
