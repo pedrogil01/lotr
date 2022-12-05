@@ -49,43 +49,67 @@ public class Board {
         beasts = army.getBeastsArmy();
 
         for(int i =0; i<heroes.size();i++){
-
-            if(heroes.get(i).getHeal()>0){
+            if(!(heroes.get(i).getHeal()> 0 ^ beasts.get(i).getHeal()> 0 )){
                 string = " |" + heroes.get(i).getName() + " vida = " + heroes.get(i).getHeal();
-                System.out.print( string);
-            } else {
-                string = " | " + heroes.get(i).getName() + " DEAD"  ;
-                System.out.print(string);
-            }
-
-            for (int j =0; j<25 - string.length(); j++)
-                System.out.print(" ");
-            System.out.print("|");
-
-
-            System.out.print("           vs            ");
-
-            if(beasts.get(i).getHeal()>0){
+                System.out.print(string + getSpace(string) + "|");
+                System.out.print("           vs            ");
                 string =" |" + beasts.get(i).getName() + " vida = " + beasts.get(i).getHeal();
-                System.out.print(string);
+                System.out.print(string + getSpace(string));
+                printArrow(countRound, i);       
             } else {
-                string =" | " + beasts.get(i).getName() + " DEAD" ; 
-                System.out.print(string);                
-            }
-
-            for (int j =0; j<25 - string.length(); j++)
-                System.out.print(" ");
-            
-            if(countRound ==i){
-                System.out.println("| <---------");
-            }
-            else{
-                System.out.println("|");
+                if (heroes.get(i).getHeal()>0){
+                    string = " | HERO SENT TO BACK ARMY ";
+                    System.out.print(string + getSpace(string) + "|");
+                    System.out.print("           vs            ");
+                } else {
+                    string = " | HERO DEAD";
+                    System.out.print(string + getSpace(string) + "|");
+                    System.out.print("           vs            ");
+                
+                }
+           
+                if (beasts.get(i).getHeal()>0){
+                    string = " | BEAST SENT TO BACK ARMY ";
+                    System.out.print(string + getSpace(string));
+                    printArrow(countRound, i);       
+                } else {
+                    string = " | BEAST DEAD";
+                    System.out.print(string + getSpace(string));
+                    printArrow(countRound, i);       
+                }
+           
             }
 
 
         }
 
     }
+
+
+
+
+    private String getSpace(String string2) {
+
+        String spaces = ""; 
+        for (int j =0; j<30 - string2.length(); j++)
+            spaces +=" ";
+
+        return spaces;
+
+    }
+
+    private void printArrow(int countRound, int i) {
+        if(countRound ==i){
+            System.out.println("| <---------");
+        }
+        else{
+            System.out.println("|");
+        }
+
+    }   
+
+
+
+
     
 }

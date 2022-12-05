@@ -18,8 +18,10 @@ public class Battle {
             System.out.println("||||||||||||\nIs Heroes turn!!!");                   
             attack(hero, beast, player1);
             System.out.println("||||||||||||\nIs Beasts turn!!!");
-            attack(beast, hero, player2);       
+            attack(beast, hero, player2);  
+            haveAnySoldierWon(hero,beast);     
     }
+
 
     private int getExtraAttack(ISoldier attacker, ISoldier deffender) {
         
@@ -64,15 +66,23 @@ public class Battle {
             System.out.println("Not enough power, good luck on the next one");
         }
 
-        isSoldierFree();
 
     }
 
-    private void isSoldierFree() {
+    private void haveAnySoldierWon(ISoldier hero2, ISoldier beast2) {
+        if( hero2.getHeal()> 0 ^ beast2.getHeal()> 0){
+            if(hero2.getHeal()>0){
+                army.getBackHeroes().add(hero2);
+            } else {
+                army.getBackBeasts().add(beast2);
+            }
+
+
+        }
         
     }
 
-    public void fusion() {
+    public void fusion(ISoldier soldier) {
 
     }
     

@@ -4,6 +4,9 @@ public class Army {
 
     private ArrayList <ISoldier> heroes = new ArrayList<ISoldier>();
     private ArrayList <ISoldier> beasts = new ArrayList<ISoldier>();
+    private ArrayList <ISoldier> backHeroes = new ArrayList<ISoldier>();
+    private ArrayList <ISoldier> backBeasts = new ArrayList<ISoldier>();
+    
     private int sizeOfArmy;
 
 
@@ -57,6 +60,27 @@ public class Army {
     public void setSizeOfArmy(int sizeOfArmy) {
         this.sizeOfArmy = sizeOfArmy;
     }
+
+
+    public ArrayList<ISoldier> getBackHeroes() {
+        return backHeroes;
+    }
+
+
+    public void setBackHeroes(ArrayList<ISoldier> backHeroes) {
+        this.backHeroes = backHeroes;
+    }
+
+
+    public ArrayList<ISoldier> getBackBeasts() {
+        return backBeasts;
+    }
+
+
+    public void setBackBeasts(ArrayList<ISoldier> backBeasts) {
+        this.backBeasts = backBeasts;
+    }
+    
 
 
 

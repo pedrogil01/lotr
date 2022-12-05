@@ -30,8 +30,7 @@ public class Round {
                 battle.makeBattle( countRound );
                 board.printBoard(countRound);
                 System.out.println("\n\n\n||||||||NEW TURN||||||||||");
-            }
-            battle.fusion();    
+            }  
             noWinner = board.isAnyWinner();
             countRound ++;
             if(countRound > army.getSizeOfArmy() - 1)
