@@ -1,0 +1,55 @@
+@startuml
+
+class LOTR{
+}
+class Player{
+}
+class Round{
+}
+class Army{
+}
+class Heroes{
+}
+class Beast{
+}
+class Soldier{
+}
+class Human{
+}
+class Elf{
+}
+class Hobbits{
+}
+class Orcs{
+}
+class Barlogs {
+}
+class Battle{
+}
+class Goal{
+}
+
+LOTR o--"2" Army
+LOTR o--"2" Player
+LOTR --> Round
+Player -->"2" Round
+Player --> Army
+Player --> Goal
+Player .--> Battle
+Goal --> Battle
+Heroes --|> Army
+Beast --|> Army
+Soldier --|> Heroes
+Soldier --|> Beast
+Human --|> Soldier
+Elf --|> Soldier
+Hobbits --|> Soldier
+Orcs --|> Soldier
+Barlogs --|> Soldier
+Battle o-- Beast
+Battle o-- Heroes
+
+
+
+
+@enduml
