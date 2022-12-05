@@ -3,7 +3,7 @@ public class Orc implements ISoldier {
     private int heal = 300;
     private int armor = 40;
     private String name = "Orc";
-
+    private Boolean status = false;
 
     
     public Orc() {
@@ -35,6 +35,19 @@ public class Orc implements ISoldier {
     @Override
     public void setArmor(int armor) {
         this.armor = armor;
+    }
+
+    @Override
+    public Boolean getStatus() {
+        // TODO Auto-generated method stub
+        return status;
+    }
+
+    @Override
+    public void setStatus(Boolean status) {
+        this.status = status;
+        // TODO Auto-generated method stub
+        
     }
 
 

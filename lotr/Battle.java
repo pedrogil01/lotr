@@ -64,6 +64,16 @@ public class Battle {
             System.out.println("Not enough power, good luck on the next one");
         }
 
+        isSoldierFree();
+
+    }
+
+    private void isSoldierFree() {
+        
+    }
+
+    public void fusion() {
+
     }
     
 }
