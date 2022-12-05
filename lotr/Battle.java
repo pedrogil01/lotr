@@ -4,7 +4,6 @@ public class Battle {
     private Army army;
     private ISoldier hero;
     private ISoldier beast;
-    private int attack;
 
 
     public Battle(Army army, Player player1, Player player2) {
@@ -14,13 +13,12 @@ public class Battle {
     }
 
     public void makeBattle(int countRound) {
-        hero = army.getHeroesArmy().get(countRound);
-        beast = army.getBeastsArmy().get(countRound);   
-        System.out.println("||||||||||||\nIs Heroes turn!!!");                   
-        attack(hero, beast, player1);
-        System.out.println("||||||||||||\nIs Beasts turn!!!");
-        attack(beast, hero, player2);   
-    
+            hero = army.getHeroesArmy().get(countRound);
+            beast = army.getBeastsArmy().get(countRound);  
+            System.out.println("||||||||||||\nIs Heroes turn!!!");                   
+            attack(hero, beast, player1);
+            System.out.println("||||||||||||\nIs Beasts turn!!!");
+            attack(beast, hero, player2);       
     }
 
     private int getExtraAttack(ISoldier attacker, ISoldier deffender) {

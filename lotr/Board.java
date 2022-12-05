@@ -4,6 +4,7 @@ public class Board {
     private Army army;
     private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
     private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
+    private String string;
 
     
     public Board(Army army) {
@@ -48,18 +49,31 @@ public class Board {
         beasts = army.getBeastsArmy();
 
         for(int i =0; i<heroes.size();i++){
-        
-            System.out.print(" |" + heroes.get(i).getName() + " vida = " + heroes.get(i).getHeal() );
 
-            for (int j =0; j<13 - heroes.get(i).getName().length(); j++)
+            if(heroes.get(i).getHeal()>0){
+                string = " |" + heroes.get(i).getName() + " vida = " + heroes.get(i).getHeal();
+                System.out.print( string);
+            } else {
+                string = " | " + heroes.get(i).getName() + " DEAD"  ;
+                System.out.print(string);
+            }
+
+            for (int j =0; j<25 - string.length(); j++)
                 System.out.print(" ");
             System.out.print("|");
 
 
             System.out.print("           vs            ");
-        
-            System.out.print(" |" + beasts.get(i).getName() + " vida = " + beasts.get(i).getHeal() );
-            for (int j =0; j<12 - beasts.get(i).getName().length(); j++)
+
+            if(beasts.get(i).getHeal()>0){
+                string =" |" + beasts.get(i).getName() + " vida = " + beasts.get(i).getHeal();
+                System.out.print(string);
+            } else {
+                string =" | " + beasts.get(i).getName() + " DEAD" ; 
+                System.out.print(string);                
+            }
+
+            for (int j =0; j<25 - string.length(); j++)
                 System.out.print(" ");
             
             if(countRound ==i){
