@@ -3,12 +3,15 @@ public class Trasgos implements ISoldier {
     private int heal = 325;
     private int armor = 40;
     private String name = "Trasgos";
+    private int position;
     private Boolean status = false;
 
 
     
-    public Trasgos() {
+    public Trasgos (int position){
+        this.position =position;
     }
+
 
     public Trasgos(String name, int heal, int armor) {
         this.heal = heal;
@@ -20,6 +23,13 @@ public class Trasgos implements ISoldier {
     public String getName() {
         return name;
     }
+
+
+    @Override
+    public void setName(String name) {
+        this.name =name;
+    }
+
 
     @Override
     public int getHeal() {
@@ -51,5 +61,12 @@ public class Trasgos implements ISoldier {
         // TODO Auto-generated method stub
         
     }
+
+    @Override
+    public int getPosition() {
+        // TODO Auto-generated method stub
+        return position;
+    }
+
     
 }

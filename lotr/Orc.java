@@ -3,11 +3,14 @@ public class Orc implements ISoldier {
     private int heal = 300;
     private int armor = 40;
     private String name = "Orc";
+    private int position;
     private Boolean status = false;
 
     
-    public Orc() {
+    public Orc (int position){
+        this.position =position;
     }
+
 
     public Orc(String name,int heal, int armor) {
         this.heal = heal;
@@ -20,6 +23,13 @@ public class Orc implements ISoldier {
         return name;
     }
     
+    
+    @Override
+    public void setName(String name) {
+        this.name =name;
+    }
+
+
     @Override
     public int getHeal() {
         return heal;
@@ -49,6 +59,12 @@ public class Orc implements ISoldier {
         // TODO Auto-generated method stub
         
     }
+    @Override
+    public int getPosition() {
+        // TODO Auto-generated method stub
+        return position;
+    }
+
 
 
 }

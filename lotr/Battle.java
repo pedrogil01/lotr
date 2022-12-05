@@ -13,13 +13,13 @@ public class Battle {
     }
 
     public void makeBattle(int countRound) {
-            hero = army.getHeroesArmy().get(countRound);
-            beast = army.getBeastsArmy().get(countRound);  
+            hero = army.getHeroesArmy().get(army.getHeroesVsBeast().get(countRound));
+            beast = army.getBeastsArmy().get(army.getBeastVsHeroes().get(countRound));  
             System.out.println("||||||||||||\nIs Heroes turn!!!");                   
             attack(hero, beast, player1);
             System.out.println("||||||||||||\nIs Beasts turn!!!");
             attack(beast, hero, player2);  
-            haveAnySoldierWon(hero,beast);     
+
     }
 
 
@@ -30,18 +30,15 @@ public class Battle {
         if(attacker instanceof Elf && deffender instanceof Orc){            
             extra = 10;
         }
-
         if(attacker instanceof Hobbit && deffender instanceof Orc){            
             extra = -5;
         }
-
         return extra;
     }
 
     private float getExtraArmor(ISoldier attacker){
         
         float extraArmor = 1;
-
         if(attacker instanceof Orc){
             extraArmor = (float) 0.1;
         } 
@@ -53,11 +50,13 @@ public class Battle {
 
         int power =  player.throwDice();     
         int newHeal = 0;
+
         if( power > deffender.getArmor()){
             newHeal = (int) (deffender.getHeal() - (power + getExtraAttack(attacker, deffender) - (deffender.getArmor()-deffender.getArmor()*getExtraArmor(attacker))));
-            if(newHeal <=0){
+            if(newHeal <=0){               
                 deffender.setHeal(0);
                 System.out.println("The " + deffender.getName() + " is DEAD");
+
             } else {
                 deffender.setHeal(newHeal);
                 System.out.println("New heal of " + deffender.getName() + " = " +deffender.getHeal() + " ");
@@ -69,21 +68,5 @@ public class Battle {
 
     }
 
-    private void haveAnySoldierWon(ISoldier hero2, ISoldier beast2) {
-        if( hero2.getHeal()> 0 ^ beast2.getHeal()> 0){
-            if(hero2.getHeal()>0){
-                army.getBackHeroes().add(hero2);
-            } else {
-                army.getBackBeasts().add(beast2);
-            }
-
-
-        }
-        
-    }
-
-    public void fusion(ISoldier soldier) {
-
-    }
     
 }

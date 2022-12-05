@@ -4,6 +4,8 @@ public class Board {
     private Army army;
     private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
     private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
+    private ArrayList<Integer> heroesVs = new ArrayList<Integer>(); 
+    private ArrayList<Integer> beastsVs = new ArrayList<Integer>(); 
     private String string;
 
     
@@ -19,24 +21,13 @@ public class Board {
 
 	public boolean isAnyWinner() {
 
-        boolean isAnyWinner = false;
+        boolean isAnyWinner = true;
 
-        for (int i =0 ; i<heroes.size(); i++){
-            if(heroes.get(i).getHeal()>0){
-                isAnyWinner=true;
-        
+        if(army.getHeroesVsBeast().isEmpty() || army.getBeastVsHeroes().isEmpty()){
+            isAnyWinner = false;
         }
-        
-    }
 
-    for (int i =0 ; i<beasts.size(); i++){
-        if(beasts.get(i).getHeal()>0){
-            isAnyWinner=true;
-    
-        }
-    
-    }
-    return isAnyWinner;
+        return isAnyWinner;
 	}
     
 
@@ -45,47 +36,48 @@ public class Board {
 
     public void printBoard(int countRound) {
 
+
         heroes = army.getHeroesArmy();
         beasts = army.getBeastsArmy();
+        heroesVs = army.getHeroesVsBeast();
+        beastsVs = army.getBeastVsHeroes();
+        printBackArmy();
 
-        for(int i =0; i<heroes.size();i++){
-            if(!(heroes.get(i).getHeal()> 0 ^ beasts.get(i).getHeal()> 0 )){
-                string = " |" + heroes.get(i).getName() + " vida = " + heroes.get(i).getHeal();
+        for(int i =0; i<heroesVs.size();i++){
+                string = " |" + heroes.get(heroesVs.get(i)).getName() + " vida = " + heroes.get(heroesVs.get(i)).getHeal();
                 System.out.print(string + getSpace(string) + "|");
                 System.out.print("           vs            ");
-                string =" |" + beasts.get(i).getName() + " vida = " + beasts.get(i).getHeal();
+                string =" |" + beasts.get(beastsVs.get(i)).getName() + " vida = " + beasts.get(beastsVs.get(i)).getHeal();
                 System.out.print(string + getSpace(string));
-                printArrow(countRound, i);       
-            } else {
-                if (heroes.get(i).getHeal()>0){
-                    string = " | HERO SENT TO BACK ARMY ";
-                    System.out.print(string + getSpace(string) + "|");
-                    System.out.print("           vs            ");
-                } else {
-                    string = " | HERO DEAD";
-                    System.out.print(string + getSpace(string) + "|");
-                    System.out.print("           vs            ");
-                
-                }
-           
-                if (beasts.get(i).getHeal()>0){
-                    string = " | BEAST SENT TO BACK ARMY ";
-                    System.out.print(string + getSpace(string));
-                    printArrow(countRound, i);       
-                } else {
-                    string = " | BEAST DEAD";
-                    System.out.print(string + getSpace(string));
-                    printArrow(countRound, i);       
-                }
-           
+                printArrow(countRound, i);    
             }
 
 
-        }
-
     }
 
+    
+    private void printBackArmy() {
+        ArrayList<ISoldier> heroesBackArmy = army.getBackHeroes();
+        ArrayList<ISoldier> beastsBackArmy = army.getBackBeasts();
+        
+        if( heroesBackArmy.size()>0 || beastsBackArmy.size()>0){
+            System.out.println("\n\n\n|||||||||||||||||||| back army|||||||||||||||");
+            
+            for(int i =0; i<heroesBackArmy.size();i++){
+                System.out.println( "\n||||||Hero's back army|||||");    
+                string = " |" + heroesBackArmy.get(i).getName() + " vida = " + heroesBackArmy.get(i).getHeal();
+                System.out.println(string + getSpace(string) + "|\n\n\n");
+            }
+            for (int i = 0; i < beastsBackArmy.size(); i++) {
+                System.out.println( "\n||||||Beast's back army|||||");
+                string =" |" + beastsBackArmy.get(i).getName() + " vida = " + beastsBackArmy.get(i).getHeal() + " |";
+                System.out.println(string + getSpace(string) +"\n\n\n");  
+            }
 
+        } else {
+            System.out.println("\n\nNo back armys\n\n");
+        }
+    }
 
 
     private String getSpace(String string2) {

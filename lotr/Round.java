@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Round {
     private Board board;
@@ -23,21 +22,21 @@ public class Round {
     public void execute() {
         
         army.makeArmys();
-
+        board.printBoard(countRound);
+            
         while(noWinner){
-            if(army.getHeroesArmy().get(countRound).getHeal()>0 && army.getBeastsArmy().get(countRound).getHeal()>0){
-                board.printBoard(countRound);
-                battle.makeBattle( countRound );
-                board.printBoard(countRound);
-                System.out.println("\n\n\n||||||||NEW TURN||||||||||");
-            }  
+            System.out.println("\n\n\n||||||||NEW TURN||||||||||");
+            battle.makeBattle(countRound );
+            army.updateArmys(countRound);
+            board.printBoard( countRound);
             noWinner = board.isAnyWinner();
             countRound ++;
             if(countRound > army.getSizeOfArmy() - 1)
                 countRound = 0;
             }
+
+        System.out.println("Thanks for playing");
         
-    
     }
 
 }

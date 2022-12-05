@@ -3,16 +3,16 @@ public class Elf implements ISoldier{
     private int heal = 250;
     private int armor = 40;
     private String name = "Elf";
+    private int position;
     private Boolean status = false;
     
-
-    public Elf() {
-    }
-
     public Elf(String name, int heal, int armor) {
         this.name = name;
         this.heal = heal;
         this.armor = armor;
+    }
+    public Elf (int position){
+        this.position =position;
     }
 
     @Override
@@ -49,6 +49,17 @@ public class Elf implements ISoldier{
         this.status = status;
         // TODO Auto-generated method stub
         
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name =name;
+    }
+
+    @Override
+    public int getPosition() {
+        // TODO Auto-generated method stub
+        return position;
     }
 
     
