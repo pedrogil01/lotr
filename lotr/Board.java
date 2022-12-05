@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 public class Board {
-    
     private Army army;
     private ArrayList<ISoldier> heroes = new ArrayList<ISoldier>(); 
     private ArrayList<ISoldier> beasts = new ArrayList<ISoldier>(); 
@@ -21,10 +20,12 @@ public class Board {
 
 	public boolean isAnyWinner() {
 
-        boolean isAnyWinner = true;
+        boolean isAnyWinner = false;
 
-        if(army.getHeroesVsBeast().isEmpty() || army.getBeastVsHeroes().isEmpty()){
-            isAnyWinner = false;
+        for (int i =0 ; i<heroes.size(); i++){
+            if(heroes.get(i).getHeal()<=0){
+                isAnyWinner=false;
+            }
         }
 
         return isAnyWinner;
@@ -43,15 +44,9 @@ public class Board {
         beastsVs = army.getBeastVsHeroes();
         printBackArmy();
 
-        for(int i =0; i<heroesVs.size();i++){
-                string = " |" + heroes.get(heroesVs.get(i)).getName() + " vida = " + heroes.get(heroesVs.get(i)).getHeal();
-                System.out.print(string + getSpace(string) + "|");
-                System.out.print("           vs            ");
-                string =" |" + beasts.get(beastsVs.get(i)).getName() + " vida = " + beasts.get(beastsVs.get(i)).getHeal();
-                System.out.print(string + getSpace(string));
-                printArrow(countRound, i);    
-            }
-
+        for(int i =0; i<heroes.size();i++){
+        
+            System.out.print(" |" + heroes.get(i).getName() + " vida = " + heroes.get(i).getHeal() );
 
     }
 
@@ -74,34 +69,9 @@ public class Board {
                 System.out.println(string + getSpace(string) +"\n\n\n");  
             }
 
-        } else {
-            System.out.println("\n\nNo back armys\n\n");
+
         }
-    }
-
-
-    private String getSpace(String string2) {
-
-        String spaces = ""; 
-        for (int j =0; j<30 - string2.length(); j++)
-            spaces +=" ";
-
-        return spaces;
 
     }
-
-    private void printArrow(int countRound, int i) {
-        if(countRound ==i){
-            System.out.println("| <---------");
-        }
-        else{
-            System.out.println("|");
-        }
-
-    }   
-
-
-
-
     
 }
