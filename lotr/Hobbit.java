@@ -3,8 +3,7 @@ public class Hobbit implements ISoldier{
     private int armor = 40;
     private String name = "Hobbit";
     private int position;
-    private Boolean status = false;
-    
+
 
     
     public Hobbit (int position){
@@ -45,18 +44,6 @@ public class Hobbit implements ISoldier{
         this.armor = armor;
     }
 
-    @Override
-    public Boolean getStatus() {
-        // TODO Auto-generated method stub
-        return status;
-    }
-
-    @Override
-    public void setStatus(Boolean status) {
-        this.status = status;
-        // TODO Auto-generated method stub
-        
-    }
     @Override
     public int getPosition() {
         // TODO Auto-generated method stub

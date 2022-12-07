@@ -7,8 +7,6 @@ public interface ISoldier {
     void setHeal(int heal);
     int getArmor();
     void setArmor(int armor);
-    Boolean getStatus();
-    void setStatus(Boolean status);
     int getPosition();
     
 

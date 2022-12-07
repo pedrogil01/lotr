@@ -1,24 +1,26 @@
 public class Battle {
-    private Player player1;
-    private Player player2;
+
     private Army army;
     private ISoldier hero;
     private ISoldier beast;
+    private int heroThrows = 1;
+    private int beastThrows = 2;
+    private int maxHeroesAttack = 100;
+    private int maxBeastsAttack = 90;
 
 
-    public Battle(Army army, Player player1, Player player2) {
+    public Battle(Army army) {
         this.army = army;
-        this.player1 = player1;
-        this.player2 = player2;
+
     }
 
     public void makeBattle(int countRound) {
             hero = army.getHeroesArmy().get(army.getHeroesVsBeast().get(countRound));
             beast = army.getBeastsArmy().get(army.getBeastVsHeroes().get(countRound));  
             System.out.println("||||||||||||\nIs Heroes turn!!!");                   
-            attack(hero, beast, player1);
+            attack(hero, beast);
             System.out.println("||||||||||||\nIs Beasts turn!!!");
-            attack(beast, hero, player2);  
+            attack(beast, hero);  
 
     }
 
@@ -46,9 +48,9 @@ public class Battle {
 
     }
 
-    private void attack(ISoldier attacker, ISoldier deffender, Player player){
+    private void attack(ISoldier attacker, ISoldier deffender){
 
-        int power =  player.throwDice();     
+        int power =  throwDice(attacker);     
         int newHeal = 0;
 
         if( power > deffender.getArmor()){
@@ -66,6 +68,58 @@ public class Battle {
         }
 
 
+    }
+
+    private int throwDice(ISoldier attacker) {
+
+        int dice = 0;
+
+        if(attacker instanceof Human || attacker instanceof Hobbit || attacker instanceof Elf){
+            dice = heroThrowDice();
+        } else {
+            dice = beastThrowDice();
+        }
+
+        return dice;
+    }
+
+    private int heroThrowDice() {
+
+        int max = 0;
+        int min = 0;
+
+        System.out.print("|||||||||||||||||| \nTo throw your dice ");
+
+        for (int i =0; i<heroThrows; i++){
+            Terminal.pressAKey("press any key:");
+            min = (int) Math.floor(Math.random()*(maxHeroesAttack));
+            System.out.println("|||||||||\nYour throw "+ (i+1) + " is: " + min );   
+            if(max < min ){
+                max = min;
+            }
+        }
+
+        return max;
+
+    }
+
+    private int beastThrowDice() {
+        
+        int max = 0;
+        int min = 0;
+
+        System.out.print("|||||||||||||||||| \nTo throw your dice ");
+
+        for (int i =0; i<beastThrows; i++){
+            Terminal.pressAKey("press any key:");
+            min = (int) Math.floor(Math.random()*(maxBeastsAttack));
+            System.out.println("|||||||||\nYour throw "+ (i+1) + " is: " + min );   
+            if(max < min ){
+                max = min;
+            }
+        }
+
+        return max;
     }
 
     

@@ -4,7 +4,6 @@ public class Elf implements ISoldier{
     private int armor = 40;
     private String name = "Elf";
     private int position;
-    private Boolean status = false;
     
     public Elf(String name, int heal, int armor) {
         this.name = name;
@@ -38,18 +37,6 @@ public class Elf implements ISoldier{
         this.armor = armor;
     }
 
-    @Override
-    public Boolean getStatus() {
-        // TODO Auto-generated method stub
-        return status;
-    }
-
-    @Override
-    public void setStatus(Boolean status) {
-        this.status = status;
-        // TODO Auto-generated method stub
-        
-    }
 
     @Override
     public void setName(String name) {

@@ -4,7 +4,6 @@ public class Trasgos implements ISoldier {
     private int armor = 40;
     private String name = "Trasgos";
     private int position;
-    private Boolean status = false;
 
 
     
@@ -24,12 +23,10 @@ public class Trasgos implements ISoldier {
         return name;
     }
 
-
     @Override
     public void setName(String name) {
         this.name =name;
     }
-
 
     @Override
     public int getHeal() {
@@ -47,19 +44,6 @@ public class Trasgos implements ISoldier {
     @Override
     public void setArmor(int armor) {
         this.armor = armor;
-    }
-
-    @Override
-    public Boolean getStatus() {
-        // TODO Auto-generated method stub
-        return status;
-    }
-
-    @Override
-    public void setStatus(Boolean status) {
-        this.status = status;
-        // TODO Auto-generated method stub
-        
     }
 
     @Override
